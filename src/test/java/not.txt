@@ -1,0 +1,25 @@
+1- Postman'i , manuel API testleri icin kullandik
+2- Otomasyon testleri icin de Rest Assuret Librariy kullanacagiz
+3- Otomasyon testlerimizi yaparken asagidaki adimlari izliyoruz
+    a) Gereksinimleri anlamak,
+    b) Test Case yaziyoruz
+        i) Test Case yaziminda Gherkin dilini kullanacagiz. Bizler yazilim diline hakim olsak da
+            karsimizdaki kisiler hakim olmayabilir ama Gherkin ile yazilan testleri anlamakta zorluk cekmeyeceklerdir.
+            Gherkin dilinde kullanacagimiz keywordler;
+
+            - Given: On kosullar
+            - When: Yapilacak aksiyonlar icin (get(), put(), post(), patch() ve delete() )
+            - Then: Istek yaptiktan (request gonderdikten sonra) dogrulama
+            - And: Coklu islemlerde kullanacagiz
+  c) Test kodlarimizi yazmaya baslayacagiz
+
+        i)  Set the URL,
+        ii) Set the expected Data (beklenen datanin olusturulmasi, post, put, patch)
+        iii) Type code to send request (Talep gondermek icin kod yazimi)
+        iv) Do Assertion ()dogrulama yapmak        
+
+
+        Given --> Durumu anlatir
+        When --> diginda, - diginde Yani aksiyon hareketlerini belirtmek icin
+        Then --> Sonra, ardindan anlaminda harekete ek adimlari belirtmek icin
+        And --> Ve, diyerek coklu hareketin paralelinde farkli hareketlerdeki adimlari eklemek icin
