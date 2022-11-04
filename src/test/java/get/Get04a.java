@@ -8,7 +8,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Get04 extends ReqresBaseURL {
+public class Get04a extends ReqresBaseURL {
      /*
        Given
            https://reqres.in/api/users/2

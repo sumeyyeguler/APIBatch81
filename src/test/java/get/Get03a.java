@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import static io.restassured.RestAssured.given;
 
-public class Get03 extends HerokuappBaseURL {
+public class Get03a extends HerokuappBaseURL {
 
     /* Given
         https://restful-booker.herokuapp.com/booking/1
