@@ -42,7 +42,7 @@ public class Get06 extends ReqresBaseURL {
         JsonPath jsonPath=response.jsonPath();
         System.out.println(jsonPath.getList("data.pantone_value"));
         //Print all ids greater than 3 on the console
-        List<Integer>ids=
-        //
+        List<Integer>ids=jsonPath.getList("data.findAll{it.id>3}.id");
+        //Assert that there are 3 ids greater than 3
     }
 }
