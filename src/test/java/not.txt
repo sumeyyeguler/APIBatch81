@@ -23,3 +23,10 @@
         When --> diginda, - diginde Yani aksiyon hareketlerini belirtmek icin
         Then --> Sonra, ardindan anlaminda harekete ek adimlari belirtmek icin
         And --> Ve, diyerek coklu hareketin paralelinde farkli hareketlerdeki adimlari eklemek icin
+----------------------------------------------------------------------------------------------------------------------------------------
+    Postman'den öncelikle manuel test ediyoruz.
+    Get datayı okumak, çağırmak içindir
+    201 oluşturuldu kodudur.
+
+    Headers nedir? bilginin bilgisi
+

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
 
-public class Get01 {
+public class Get01a {
     /*
     1) Postman, manuel API testleri icin kullandik,
     2) Otomasyon testleri icin de Rest Assured Library kullancagiz.

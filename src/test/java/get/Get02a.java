@@ -2,13 +2,12 @@ package get;
 
 import baseURL.ReqresBaseURL;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Get02 extends ReqresBaseURL {
+public class Get02a extends ReqresBaseURL {
       
     /*
         Given
