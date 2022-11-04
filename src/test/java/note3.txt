@@ -1,0 +1,20 @@
+1) API testlerinde Web Driver kullanıyor musunuz? Hangi dependencies'leri kullanıyorsunuz?
+   API testlerinde, UI testleri için gerekli Web Driver'a ihtiyaç yoktur.
+   Başlangıç için Rest-Assured veye JUnit ve TestNG gibi dependencies'ler yeterli olur.
+2) Doğrulama için kullanılan, Hard Assert ve Verification farkları nelerdir?
+   Hard Assert kullandığımızda ilk hata olan yerde test durur.
+   Verification'da; testler hata olsa dahi çalışır. Hatalı olan test için hata mesajı alınır.
+   ÖNEMLİ: Soft Assert = Verification
+3) API testlerinde request nasıl tanımlanır?
+   given().when().get() içerisinde tanımlanır.
+4) Request'ten gelen cevap (response) nerede saklanır?
+   Response response'un içerisinde.
+5) assertThat() Hard mı yoksa Soft Assert müdür?
+   assertThat() Hard assertion'dır.
+TEST iÇiN KULLANILAN ADRESLER
+https://restful-booker.herokuapp.com/booking
+https://reqres.in/api/users
+http://dummy.restapiexample.com/api/v1/employee
+https://jsonplaceholder.typicode.com/
+https://www.gmibank.com/api/authenticate
+http://www.gmibank.com/api/tp-customers

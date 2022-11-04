@@ -28,5 +28,4 @@
     Get datayı okumak, çağırmak içindir
     201 oluşturuldu kodudur.
 
-    Headers nedir? bilginin bilgisi
 
