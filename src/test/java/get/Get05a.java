@@ -8,9 +8,11 @@ import org.junit.Test;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class Get06 extends ReqresBaseURL {
+public class Get05a extends ReqresBaseURL {
     /*
        Given
               https://reqres.in/api/unknown/
@@ -53,6 +55,9 @@ public class Get06 extends ReqresBaseURL {
         List<String>names=jsonPath.getList("data.findAll{it.id<3}.name");
         System.out.println("names = " + names); //names = [cerulean, fuchsia rose]
         //Assert that the number of names whose ids are less than 3 is 2
+        assertTrue(names.size()<3);
+        assertEquals(2,names.size());
 
+        //response.then().body("data",hasSize(6));  body ile ilgili assertionlar yapabiliriz fakat datayı kullanamayız.
     }
 }
