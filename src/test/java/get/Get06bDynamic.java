@@ -1,9 +1,9 @@
 package get;
 
 import baseURL.JsonplaceholderBaseUrl;
-import baseURL.ReqresBaseURL;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Get06a extends JsonplaceholderBaseUrl {
+public class Get06bDynamic extends JsonplaceholderBaseUrl {
     //De-Serialization: Json datayı Java objesine çevirme
     //Serialization: Java objesini Json formatına çevirme.
     //De-Serialization: Iki türlü yapacağız.
@@ -39,39 +39,30 @@ public class Get06a extends JsonplaceholderBaseUrl {
      */
 
     @Test
-    public void test01() {
-        //set the url
+    public void get08(){
+
+    //Set the Url
         spec.pathParams("first","todos","second",2);
 
-        //set the expected data/payload
-        //keyler string valuelar ise hem string hemde int oldugu icin value kısmını object sectik
-        //object'in dezavantajı; manipulation yapamayız, bizi kısıtlıyor.
-        //map'in icine datayi put ile koyuyoruz.
-        //expectedData'da map'i json formatına benzetip,response'dan gelen formatıda map'e cevirerek karsilastirmalar,assertionlar yapacagız.
-        Map<String,Object> expectedData = new HashMap<>();
-        expectedData.put("userId",1);
-        expectedData.put("id",2);
-        expectedData.put("title","quis ut nam facilis et officia qui");
-        expectedData.put("completed",false);
-        System.out.println("expectedData = " + expectedData);
-        //{id=2, completed=false, userId=1, tittle=quis ut nam facilis et officia qui}  hashMap sıra gozetmedigi icin hizlidir.
+    //Set The Expected Data ==> Payload
+        JsonPlaceHolderTestData objJasonPlaceHolder=new JsonPlaceHolderTestData();
+            Map<String,Object> expectedData=objJasonPlaceHolder.expectedDataMethod(1,"quis ut nam facilis et officia qui",false);
+            //bu bize map doner, bu sebeple map'in icine koymaliyim.
 
-        //send the request and get the response
+    //Send The Request and Get The Response
         Response response = given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
-        //do assertion
-        //response'u Map e ceviriyoruz
-        Map<String, Object> actualData = response.as(HashMap.class);//json formatı Map'e donusturduk- De-Serialization
+    //Do Assertion
+        Map<String, Object> actualData = response.as(HashMap.class);//De-Serialization
         System.out.println("actualData = " + actualData);
         assertEquals(expectedData.get("userId"),actualData.get("userId"));
-        assertEquals(expectedData.get("id"),actualData.get("id"));
         assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
         assertEquals("1.1 vegur", response.header("Via"));
         assertEquals("cloudflare", response.header("Server"));
         assertEquals(200, response.statusCode());
 
-
     }
 }
+
