@@ -42,29 +42,24 @@ public class Get07bDynamic_Continue extends GoRestBaseUrl {
         spec.pathParams("first", "public", "second", "v1", "third", "users", "fourth", 2986);
         //Set The Expected Data ==> Payload
         //oncelikle inner dataları yapıyoruz.
-        Map<String, String> innerDataMap = new HashMap<>();
-        innerDataMap.put("name", "Brijesh Kocchar");
-        innerDataMap.put("email", "kocchar_brijesh@prosacco.com");
-        innerDataMap.put("gender", "female");
-        innerDataMap.put("status", "active");
-        System.out.println("innerDataMap = " + innerDataMap);
+        GoRestTestData goRestTestData = new GoRestTestData();
+        Map<String, String> innerDataMap = goRestTestData.innerMapDataMethod("Shanti Deshpande DVM", "deshpande_dvm_shanti@funk.io", "male", "inactive");
 
-        Map<String, Object> expectedDataMap = new HashMap<>();
-        expectedDataMap.put("meta", null);
-        expectedDataMap.put("data", innerDataMap);
+        Map<String, Object> expectedDataMap = goRestTestData.expectedData(null, innerDataMap);
+
 
         //Send The Request and Get The Response
         Response response = given().spec(spec).when().get("/{first}/{second}/{third}/{fourth}");
         response.prettyPrint();
 
         //do assertion
-        Map<String,Object>actualDataMap=response.as(HashMap.class);
-        assertEquals(200,response.statusCode());
-        assertEquals(expectedDataMap.get("meta"),actualDataMap.get("meta"));
-        assertEquals(innerDataMap.get("name"),((Map)(actualDataMap.get("data"))).get("name"));
-        assertEquals(innerDataMap.get("email"),((Map)(actualDataMap.get("data"))).get("email"));
-        assertEquals(innerDataMap.get("gender"),((Map)(actualDataMap.get("data"))).get("gender"));
-        assertEquals(innerDataMap.get("status"),((Map)(actualDataMap.get("data"))).get("status"));
+        Map<String, Object> actualDataMap = response.as(HashMap.class);
+        assertEquals(200, response.statusCode());
+        assertEquals(expectedDataMap.get("meta"), actualDataMap.get("meta"));
+        assertEquals(innerDataMap.get("name"), ((Map) (actualDataMap.get("data"))).get("name"));
+        assertEquals(innerDataMap.get("email"), ((Map) (actualDataMap.get("data"))).get("email"));
+        assertEquals(innerDataMap.get("gender"), ((Map) (actualDataMap.get("data"))).get("gender"));
+        assertEquals(innerDataMap.get("status"), ((Map) (actualDataMap.get("data"))).get("status"));
 
 
     }

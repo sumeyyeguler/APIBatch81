@@ -41,10 +41,10 @@ public class Get07b extends GoRestBaseUrl {
         //Set The Expected Data ==> Payload
         //oncelikle inner dataları yapıyoruz.
         Map<String, String> innerDataMap = new HashMap<>();
-        innerDataMap.put("name", "Brijesh Kocchar");
-        innerDataMap.put("email", "kocchar_brijesh@prosacco.com");
-        innerDataMap.put("gender", "female");
-        innerDataMap.put("status", "active");
+        innerDataMap.put("name", "Shanti Deshpande DVM");
+        innerDataMap.put("email", "deshpande_dvm_shanti@funk.io");
+        innerDataMap.put("gender", "male");
+        innerDataMap.put("status", "inactive");
         System.out.println("innerDataMap = " + innerDataMap);
 
         Map<String, Object> expectedDataMap = new HashMap<>();
