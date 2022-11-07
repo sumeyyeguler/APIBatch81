@@ -1,0 +1,5 @@
+response.prettPrint();     responstaki body'i yazdirir.
+
+response.peek();           respons'taki herşeyi yazdirir.
+
+response.print();          string olarak datayi verir.
