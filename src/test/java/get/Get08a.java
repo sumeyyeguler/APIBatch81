@@ -55,7 +55,7 @@ public class Get08a extends GoRestBaseUrl {
                         "data.name", hasItems("Pres. Amarnath Dhawan", "Sujata Chaturvedi", "Navin Panicker"));
 
         //hasSize(); kac tane oldugunu sayan method
-        //hasItem(); var olup olmadigini kontrol eden method
+        //hasItem(); var olup olmadigini kontrol eden method(CONTAINS)
 
         //Kadın ve erkek sayılarını karşılaştıralım.
         //1. Yol:
