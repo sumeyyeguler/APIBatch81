@@ -40,7 +40,7 @@ public class Get07bDynamic_Continue extends GoRestBaseUrl {
     public void test01() {
         //set the url
         spec.pathParams("first", "public", "second", "v1", "third", "users", "fourth", 2986);
-        //Set The Expected Data ==> Payload
+        //Set The Expected Data ==> Payload(API'e gonderilecek olan veri)
         //oncelikle inner dataları yapıyoruz.
         GoRestTestData goRestTestData = new GoRestTestData();
         Map<String, String> innerDataMap = goRestTestData.innerMapDataMethod("Shanti Deshpande DVM", "deshpande_dvm_shanti@funk.io", "male", "inactive");
