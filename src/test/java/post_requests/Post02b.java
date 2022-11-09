@@ -1,18 +1,21 @@
 package post_requests;
 
+
 import baseURL.HerokuappBaseURL;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-import test_data.HerokuappTestData;
+import test_data.RestfulTestData;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
-public class Post02 extends HerokuappBaseURL {
-       /*
+
+    public class Post02b extends HerokuappBaseURL {
+     /*
         Given
             1) https://restful-booker.herokuapp.com/booking
             2) {
@@ -44,20 +47,34 @@ public class Post02 extends HerokuappBaseURL {
                                              }
      */
 
+
+
     @Test
     public void post01() {
-        //set the url
-        spec.pathParam("first","booking");
+        //Set the Url
+        spec.pathParam("first", "booking");
 
-        //Set the expected Data
-        HerokuappTestData herokuappTestData=new HerokuappTestData();
-        Map<String,String>bookingdatesMap=herokuappTestData.bookingDatesDataInnerMapMethod("2021-09-09","2021-09-21");
-       Map<String,Object> expectedData= herokuappTestData.expectedDataMapMethod("John","Doe",11111,true,bookingdatesMap);
-        //send the request get the response
-        Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedData).post("/{first}");
-        System.out.println("response = " + response);
-        response.as(HashMap.class);
-        //do assertion
+        //Set the Expected Data
+        RestfulTestData obj = new RestfulTestData();
+        Map<String, String> bookingdatesMap = obj.bookingdatesMethod("2021-09-09", "2021-09-21");
+        Map<String, Object> expectedData = obj.expectedDataMethod("John", "Doe", 11111, true, bookingdatesMap);
+        System.out.println("expectedData = " + expectedData);
+
+        //Send the Request and Get the Response
+        Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}");
+        response.prettyPrint();
+
+        //Do Assertion
+        Map<String, Object> actualData = response.as(HashMap.class);//De-Serialization
+        System.out.println("actualData = " + actualData);
+
+        assertEquals(expectedData.get("firstname"), ((Map) actualData.get("booking")).get("firstname"));
+        assertEquals(expectedData.get("lastname"), ((Map) actualData.get("booking")).get("lastname"));
+        assertEquals(expectedData.get("totalprice"), ((Map) actualData.get("booking")).get("totalprice"));
+        assertEquals(expectedData.get("depositpaid"), ((Map) actualData.get("booking")).get("depositpaid"));
+
+        assertEquals(bookingdatesMap.get("checkin"), ((Map) ((Map) actualData.get("booking")).get("bookingdates")).get("checkin"));
+        assertEquals(bookingdatesMap.get("checkout"), ((Map) ((Map) actualData.get("booking")).get("bookingdates")).get("checkout"));
 
     }
 }
