@@ -11,9 +11,12 @@ public class JsonPlaceHolderTestData {
 
     public Map<String, Object> expectedDataMethod(Integer userId, String tittle, Boolean completed) {
         Map<String, Object> expectedDataMap = new HashMap<>();
-        expectedDataMap.put("userId", userId);
-        expectedDataMap.put("title", tittle);
-        expectedDataMap.put("completed", completed);
+        if (userId!=null){
+        expectedDataMap.put("userId", userId);}
+        if(tittle!=null){
+        expectedDataMap.put("title", tittle);}
+        if (completed!=null){
+        expectedDataMap.put("completed", completed);}
         //System.out.println("expectedDataMap = " + expectedDataMap);
         return expectedDataMap;
     }
