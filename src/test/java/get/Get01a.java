@@ -19,7 +19,7 @@ public class Get01a {
 
             - Given : On kosullar,
             - When  : Yapilacak aksiyonlar icin (get(), put(), post(), patch() ve delete() )
-            - Then  : Istek yaptiktan (request gonderdikten sonra) dogrulama
+            - Then  : Istek yaptiktan (request gonderdikten) sonra dogrulama
             - And   : Coklu islemlerde kullanacagiz
 
         c) Test Kodlarimizi Yazmaya Baslayacagiz
