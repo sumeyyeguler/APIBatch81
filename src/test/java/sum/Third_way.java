@@ -72,7 +72,7 @@ public class Third_way extends JsonplaceholderBaseUrl {
         assertEquals("1.1 vegur", response.header("Via"));
         assertEquals("cloudflare", response.header("Server"));
         assertEquals(200, response.statusCode());
-
+//ss
 
     }
 }
